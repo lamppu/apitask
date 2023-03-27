@@ -1,0 +1,17 @@
+{
+  "name": "apitask",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamppu/apitask.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lamppu/apitask/issues"
+  },
+  "homepage": "https://github.com/lamppu/apitask#readme"
+}
