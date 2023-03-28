@@ -9,11 +9,17 @@ class Company extends Model {
         const PostalCode = require('./postal_code');
 
         return {
-            postalCode: Model.BelongsToOneRelation,
-            modelClass: PostalCode,
-            join: {
-                from: 'Companies.postalCode',
-                to: 'PostalCodes.postalCodeId'
+            companies: {
+                relation: Model.ManyToManyRelation,
+                modelClass: PostalCode,
+                join: {
+                    from: 'Companies.id',
+                    through: {
+                        from: 'PostalCodes_Companies.companyId',
+                        to: 'PostalCodes_Companies.postalCodeId'
+                    },
+                    to: 'PostalCodes.postalCode'
+                }
             }
         }
     }

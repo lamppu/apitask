@@ -5,18 +5,22 @@
 exports.up = function(knex) {
     return knex.schema
     .createTable('PostalCodes', function (table) {
-        table.string('postalCodeId', 5).primary();
+        table.string('postalCode', 5).primary();
         table.string('city');
     })
     .createTable('Companies', function (table) {
-        table.string('businessId').primary();
+        table.increments('id').primary()
+        table.string('businessId');
         table.date('registrationDate');
         table.string('companyForm');
         table.string('detailsUri');
-        table.string('postalCode', 5);
-        table.foreign('postalCode').references('PostalCodes.postalCodeId');
-        table.index('postalCode', 'idx_postalCode');
-    });
+    })
+    .createTable('PostalCodes_Companies', function (table) {
+        table.increments('id').primary()
+
+        table.string('postalCodeId').unsigned().references('PostalCodes.postalCode').onDelete('CASCADE').index();
+        table.string('companyId').unsigned().references('Companies.id').onDelete('CASCADE').index();
+    })
 };
 
 /**
@@ -25,6 +29,7 @@ exports.up = function(knex) {
  */
 exports.down = function(knex) {
     return knex.schema
-    .dropTable("Companies")
-    .dropTable("PostalCodes");
+    .dropTable('PostalCodes_Companies')
+    .dropTable('Companies')
+    .dropTable('PostalCodes');
 };
