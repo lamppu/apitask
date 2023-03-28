@@ -1,0 +1,24 @@
+{
+  "name": "apitask",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init-db": "knex migrate:latest && knex seed:run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamppu/apitask.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lamppu/apitask/issues"
+  },
+  "homepage": "https://github.com/lamppu/apitask#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "knex": "^2.4.2",
+    "mysql2": "^3.2.0",
+    "objection": "^3.0.1"
+  }
+}
