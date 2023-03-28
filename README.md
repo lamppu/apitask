@@ -22,7 +22,7 @@ MYSQL_PWD='password'
 MYSQL_DB='database_name'
 ```
 
-##### Add database tables
+##### Add database tables and seed PostalCodes table with ten records
 
-In the project root, run ```npm run create-db-tables```
+In the project root, run ```npm run init-db```
 
