@@ -9,7 +9,7 @@ class Company extends Model {
         const PostalCode = require('./postal_code');
 
         return {
-            companies: {
+            postalcodes: {
                 relation: Model.ManyToManyRelation,
                 modelClass: PostalCode,
                 join: {
@@ -24,3 +24,5 @@ class Company extends Model {
         }
     }
 }
+
+module.exports = Company;
