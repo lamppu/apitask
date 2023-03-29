@@ -10,10 +10,22 @@ const app = express();
 app.get('/postal_codes/:postalcode/companies', async (req, res) => {
     let postalCode = req.params.postalcode;
 
-    const postalCodeObj = await PostalCode.query().where('postalCode', postalCode);
+    //Validating postal code
+    if(postalCode.length === 5 && /\d{5}/.test(postalCode)) {
+        const postalCodeObj = await PostalCode.query().findById(postalCode);
     
-    const companies = await postalCodeObj[0].$relatedQuery('companies');
-    return res.status(200).json(companies);
+        if (postalCodeObj) {
+            const companies = await postalCodeObj.$relatedQuery('companies');
+            return res.status(200).json(companies);
+        } else {
+            return res.status(404).json({"message": "No data found for selected postal code: " + postalCode});
+        }
+    } else {
+        return res.status(404).json({"message": "Please provide a valid postal code"});
+    }
+    
+    
+    
 });
 
 app.listen(3000, () => {
