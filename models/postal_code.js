@@ -22,7 +22,7 @@ class PostalCode extends Model {
                         from: 'PostalCodes_Companies.postalCodeId',
                         to: 'PostalCodes_Companies.companyId'
                     },
-                    to: 'Companies.id'
+                    to: 'Companies.businessId'
                 }
             }
              

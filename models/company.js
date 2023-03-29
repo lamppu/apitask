@@ -5,6 +5,10 @@ class Company extends Model {
         return 'Companies';
     }
 
+    static get idColumn() {
+        return 'businessId';
+    }
+
     static get relationMappings() {
         const PostalCode = require('./postal_code');
 
@@ -13,7 +17,7 @@ class Company extends Model {
                 relation: Model.ManyToManyRelation,
                 modelClass: PostalCode,
                 join: {
-                    from: 'Companies.id',
+                    from: 'Companies.businessId',
                     through: {
                         from: 'PostalCodes_Companies.companyId',
                         to: 'PostalCodes_Companies.postalCodeId'

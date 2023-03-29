@@ -24,9 +24,16 @@ const fetchDataAndSeedDatabase = async () => {
         const companies = response.data.results;
         
         for (let company of companies) {
-            const insertedCompany = await Company.query().insert(company);
+            const existingCompany = await Company.query().findById(company.businessId);
 
-            await Company.relatedQuery('postalcodes').for(insertedCompany.id).relate(postalCode.postalCode)
+            if(!existingCompany) {
+                const insertedCompany = await Company.query().insert(company);
+                await Company.relatedQuery('postalcodes').for(insertedCompany.businessId).relate(postalCode.postalCode);
+            } else {
+                await Company.relatedQuery('postalcodes').for(existingCompany.businessId).relate(postalCode.postalCode);
+            }
+
+            
         }
     }
     console.log('Data fetched and inserted to database succesfully.');
