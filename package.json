@@ -5,7 +5,7 @@
   "scripts": {
     "init-db": "knex migrate:latest && knex seed:run",
     "rollback": "knex migrate:rollback",
-    "test1": "mocha --exit test/suites/mysql_tests1.js"
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",
