@@ -13,6 +13,7 @@ exports.up = function(knex) {
     })
     .createTable('Companies', function (table) {
         table.increments('id').primary()
+        table.string('name');
         table.string('businessId');
         table.date('registrationDate');
         table.string('companyForm');
