@@ -7,16 +7,16 @@ exports.seed = async function(knex) {
   await knex('PostalCodes').del();
 
   const postalCodes = [
-    {postalCodeId: '02100', city: 'Espoo'},
-    {postalCodeId: '00140', city: 'Helsinki'},
-    {postalCodeId: '00930', city: 'Helsinki'},
-    {postalCodeId: '00710', city: 'Helsinki'},
-    {postalCodeId: '01730', city: 'Vantaa'},
-    {postalCodeId: '00500', city: 'Helsinki'},
-    {postalCodeId: '01760', city: 'Vantaa'},
-    {postalCodeId: '01690', city: 'Vantaa'},
-    {postalCodeId: '00510', city: 'Helsinki'},
-    {postalCodeId: '00180', city: 'Helsinki'}
+    {postalCode: '02100', city: 'Espoo'},
+    {postalCode: '00140', city: 'Helsinki'},
+    {postalCode: '00930', city: 'Helsinki'},
+    {postalCode: '00710', city: 'Helsinki'},
+    {postalCode: '01730', city: 'Vantaa'},
+    {postalCode: '00500', city: 'Helsinki'},
+    {postalCode: '01760', city: 'Vantaa'},
+    {postalCode: '01690', city: 'Vantaa'},
+    {postalCode: '00510', city: 'Helsinki'},
+    {postalCode: '00180', city: 'Helsinki'}
   ];
 
   await knex('PostalCodes').insert(postalCodes);

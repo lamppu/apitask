@@ -4,6 +4,9 @@
  */
 exports.up = function(knex) {
     return knex.schema
+    .dropTableIfExists('PostalCodes_Companies')
+    .dropTableIfExists('Companies')
+    .dropTableIfExists('PostalCodes')
     .createTable('PostalCodes', function (table) {
         table.string('postalCode', 5).primary();
         table.string('city');
@@ -18,8 +21,8 @@ exports.up = function(knex) {
     .createTable('PostalCodes_Companies', function (table) {
         table.increments('id').primary()
 
-        table.string('postalCodeId').unsigned().references('PostalCodes.postalCode').onDelete('CASCADE').index();
-        table.string('companyId').unsigned().references('Companies.id').onDelete('CASCADE').index();
+        table.string('postalCodeId').references('PostalCodes.postalCode').onDelete('CASCADE').index();
+        table.integer('companyId').unsigned().references('Companies.id').onDelete('CASCADE').index();
     })
 };
 
@@ -29,7 +32,7 @@ exports.up = function(knex) {
  */
 exports.down = function(knex) {
     return knex.schema
-    .dropTable('PostalCodes_Companies')
-    .dropTable('Companies')
-    .dropTable('PostalCodes');
+    .dropTableIfExists('PostalCodes_Companies')
+    .dropTableIfExists('Companies')
+    .dropTableIfExists('PostalCodes');
 };
