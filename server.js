@@ -52,3 +52,5 @@ app.get('/postal_codes/:postalcode/companies', async (req, res) => {
 app.listen(3000, () => {
     console.log('Server listening on 3000');
 })
+
+module.exports = app;

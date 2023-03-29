@@ -32,6 +32,10 @@ In the project root, run ```node prh_client/prh_api_client.js```
 
 Note that the slash '\\' should be written the other way around on a Windows console.
 
+### Run tests
+
+In the project root, run ```npm run test```
+
 ### Start the server
 
 In the project root, run ```node server.js```
