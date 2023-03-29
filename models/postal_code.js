@@ -5,6 +5,10 @@ class PostalCode extends Model {
         return 'PostalCodes';
     }
 
+    static get idColumn() {
+        return 'postalCode';
+    }
+
     static get relationMappings() {
         const Company = require('./company');
 
