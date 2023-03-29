@@ -9,6 +9,9 @@ To run this project, you will need to install Node.js. This project was built wi
 ### Clone this repository
 ```git clone https://github.com/lamppu/apitask.git```
 
+### Install dependencies
+In the project root, run ```npm install```
+
 ### Database configuration
 #### Form database connection:
 
