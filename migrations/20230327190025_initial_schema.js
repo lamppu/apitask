@@ -12,9 +12,8 @@ exports.up = function(knex) {
         table.string('city');
     })
     .createTable('Companies', function (table) {
-        table.increments('id').primary()
+        table.string('businessId').primary();
         table.string('name');
-        table.string('businessId');
         table.date('registrationDate');
         table.string('companyForm');
         table.string('detailsUri');
@@ -23,7 +22,7 @@ exports.up = function(knex) {
         table.increments('id').primary()
 
         table.string('postalCodeId').references('PostalCodes.postalCode').onDelete('CASCADE').index();
-        table.integer('companyId').unsigned().references('Companies.id').onDelete('CASCADE').index();
+        table.string('companyId').references('Companies.businessId').onDelete('CASCADE').index();
     })
 };
 
